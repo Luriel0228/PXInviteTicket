@@ -1,5 +1,6 @@
 package com.github.luriel0228.pxinviteticket.file;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,9 +14,17 @@ public class DataFile {
 
     private Connection connection;
 
-    public DataFile(String dbName) {
+    public DataFile(String dbName, String dbPath) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + dbName);
+            // Check if the directory exists, if not create it
+            File dbDirectory = new File(dbPath);
+            if (!dbDirectory.exists()) {
+                dbDirectory.mkdirs();
+            }
+
+            String dbFilePath = dbPath + File.separator + dbName;
+
+            connection = DriverManager.getConnection("jdbc:sqlite:" + dbFilePath);
             createTables();
         } catch (SQLException e) {
             handleSQLException("연결 또는 테이블 생성 중 오류가 발생했습니다", e);
