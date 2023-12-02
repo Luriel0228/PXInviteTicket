@@ -16,7 +16,6 @@ public class DataFile {
 
     public DataFile(String dbName, String dbPath) {
         try {
-            // Check if the directory exists, if not create it
             File dbDirectory = new File(dbPath);
             if (!dbDirectory.exists()) {
                 dbDirectory.mkdirs();
