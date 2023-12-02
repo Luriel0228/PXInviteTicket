@@ -21,7 +21,6 @@ dependencies {
     compileOnly "org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT"
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
     implementation 'org.projectlombok:lombok:1.18.28'
-    implementation 'org.projectlombok:lombok:1.18.28'
     implementation 'org.jetbrains:annotations:24.0.0'
 }
 
